@@ -1,0 +1,33 @@
+{% extends 'bpp_app/base.html' %} 
+{% load staticfiles %}
+
+{% block head_block %} 
+    <title>BPP WEBSITE</title>
+    <link rel="stylesheet" src="{% static 'css/landing.css' %}"/>
+{% endblock %} 
+
+{% block body_block %}  
+    <div class="starting_pic p-5 text-center bg-image justify-content-center"
+    style="background-image: url('{% static 'img/placeholder.jpg' %}');
+    height: 90vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;">
+        <div class="mask" style="background-color: rgba(0, 0, 0, 0.6)">
+            <div class="d-flex justify-content-center align-items-center h-100">
+                <div class="text-white">
+                    <h1 class="mb-6 display-1" id="brand-name">BPP WEBSITE</h1>
+                    <h2 class="mb-3 display-3" id="slogan">SLOGAN HERE</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h1 class="display-1">
+        MORE CONTENT HERE
+    </h1>
+
+
+
+    
+{% endblock %}
