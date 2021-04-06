@@ -9,5 +9,7 @@ def test_view(request):
 def landing_page(request):
     marketing_messages = MarketingPoints.objects.all()
     context_dict = {"messages": marketing_messages}
+    for message in marketing_messages:
+        print(message.text)
     return render(request, "bpp_app/landing.html", context=context_dict)
 

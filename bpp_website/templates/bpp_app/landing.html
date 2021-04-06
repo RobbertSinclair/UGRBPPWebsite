@@ -9,24 +9,33 @@
 {% block body_block %}  
     <div class="starting_pic p-5 text-center bg-image justify-content-center"
     style="background-image: url('{% static 'img/placeholder.jpg' %}');
-    height: 90vh;
+    height: 70vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;">
         <div class="mask" style="background-color: rgba(0, 0, 0, 0.6)">
             <div class="d-flex justify-content-center align-items-center h-100">
                 <div class="text-white">
-                    <h1 class="mb-6 display-1" id="brand-name">BPP WEBSITE</h1>
-                    <h2 class="mb-3 display-3" id="slogan">SLOGAN HERE</h2>
+                    <h1 class="mb-6 display-1" id="brand-name">MEDISHUTTLE WEBSITE</h1>
+                    <h1 class="mb-3 display-3" id="slogan">SLOGAN HERE</h1>
                 </div>
             </div>
         </div>
     </div>
 
-    <h1 class="display-1">
-        MORE CONTENT HERE
-    </h1>
+    
 
+    {% for message in messages %}
+    <div class="row">
+        <div class="col">
+            <h1 class="display-4">{{ message.header }}</h1>
+            <p class="lead">{{ message.text }}</p>
+        </div>
+        <div class="col-sm">
+            <img class="img-fluid img-thumbnail" style="height: 500px; width: 100%; object-fit:cover;" src="media/{{ message.image }}" />
+        </div>
+    </div>
+    {% endfor %}
 
 
     

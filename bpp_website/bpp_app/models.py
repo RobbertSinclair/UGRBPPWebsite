@@ -10,3 +10,7 @@ class MarketingPoints(models.Model):
     def __str__(self):
         return self.header
 
+class Sponsor(models.Model):
+    logo = models.ImageField(null=False, upload_to="sponsor_logos", blank=False)
+    link = models.URLField(null=False)
+
