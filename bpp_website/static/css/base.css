@@ -7,6 +7,18 @@ body {
     padding-top: 70px;
 }
 
+.market-img {
+    height: 50% !important;
+    width: 50% !important;
+    display: block !important;
+    margin: auto !important;
+    object-fit: cover !important;
+}
+
+.person-name {
+    text-align: center;
+}
+
 @media screen and (max-width: 768px) {
     body {
         padding-top: 0px;
