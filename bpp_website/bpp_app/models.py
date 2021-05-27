@@ -5,14 +5,15 @@ from django.template.defaultfilters import slugify
 
 class Heading(models.Model):
     heading = models.CharField(max_length=100, null=False)
-    slug = models.SlugField(max_length=200, null=True, default=None)
+    slug = models.SlugField(max_length=200, null=True, default=None, blank=True)
 
     def __str__(self):
         return self.heading
 
     def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)
         self.slug = slugify(self.heading)
+        super(Heading, self).save(*args, **kwargs)
+        
 
 class MarketingPoints(models.Model):
     heading = models.ForeignKey(Heading, blank=False, default=None, on_delete=models.CASCADE)
