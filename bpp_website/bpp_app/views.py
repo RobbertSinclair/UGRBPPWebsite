@@ -12,7 +12,15 @@ def landing_page(request):
     for heading in headings:
         new_heading_dict = {"heading": heading.heading, "slug": heading.slug}
         the_items = MarketingPoints.objects.filter(heading=heading)
-        new_heading_dict["marketing_points"] = the_items
+        the_item_list = []
+        for item in the_items:
+            item_dict = {}
+            item_dict["item"] = item
+            the_paragraphs = item.text.split("\n")
+            item_dict["paragraphs"] = the_paragraphs
+            the_item_list.append(item_dict)
+        new_heading_dict["marketing_points"] = the_item_list
         context_dict["headings"].append(new_heading_dict)
+        print(context_dict)
     return render(request, "bpp_app/base.html", context=context_dict)
 

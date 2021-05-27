@@ -20,7 +20,7 @@
     <body>
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
             <div class="container-fluid">
-                <a class="navbar-brand mb-0 h1" href="{% url 'bpp_app:landing' %}">
+                <a class="navbar-brand mb-0 h1" href="#">
                     <img id="logo" alt="MEDISHUTTLE" src="{% static 'img/medi_shuttle.png' %}" height="50" />
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,6 +28,9 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg 0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#the-team">Meet The Team</a>
+                        </li>
                         {% for heading in headings %}
                             <li class="nav-item">
                                 <a class="nav-link" href="#{{heading.slug}}">{{heading.heading}}</a>
@@ -58,7 +61,7 @@
             </div>
         </div>
 
-        <div id="the-medishuttle-team" class="heading-div">
+        <div id="the-team" class="heading-div">
             <h1 class="display-1 persona-headings">The Medi Shuttle Team</h1>
             <div class="row text-center">
                 <div class="col">
@@ -96,12 +99,14 @@
                 {% for message in heading.marketing_points %}
                     <div class="row">
                         <div class="col">
-                            <h1 class="display-4">{{ message.header }}</h1>
-                            <p class="lead message">{{ message.text }}</p>
+                            <h1 class="display-4">{{ message.item.header }}</h1>
+                            {% for paragraph in message.paragraphs %}
+                                <p class="lead message">{{ paragraph }}</p>
+                            {% endfor %}
                         </div>
-                        {% if message.image %}
+                        {% if message.item.image %}
                             <div class="col-sm">
-                                <img class="img-fluid img-thumbnail market-img" style="height: 500px; object-fit:cover;" src="media/{{ message.image }}" />
+                                <img class="img-fluid img-thumbnail" style="height: 500px; object-fit:cover;" src="media/{{ message.item.image }}" />
                             </div>
                         {% endif %}
                     </div>

@@ -8,8 +8,8 @@ body {
 }
 
 .market-img {
-    height: 50% !important;
-    width: 50% !important;
+    height: 80% !important;
+    width: 80% !important;
     display: block !important;
     margin: auto !important;
     object-fit: cover !important;
