@@ -24,17 +24,21 @@
     </div>
 
     
-    <h1 class="display-1 persona-headings">Our Personas</h1>
-    {% for message in messages %}
-    <div class="row">
-        <div class="col">
-            <h1 class="display-4">{{ message.header }}</h1>
-            <p class="lead">{{ message.text }}</p>
-        </div>
-        <div class="col-sm">
-            <img class="img-fluid img-thumbnail" style="height: 500px; width: 100%; object-fit:cover;" src="media/{{ message.image }}" />
-        </div>
-    </div>
+    {% for heading in headings %}
+    <h1 class="display-1 persona-headings">{{heading.heading}}</h1>
+        {% for message in heading.marketing_points %}
+            <div class="row">
+                <div class="col">
+                    <h1 class="display-4">{{ message.header }}</h1>
+                    <p class="lead">{{ message.text }}</p>
+                </div>
+                {% if message.image %}
+                    <div class="col-sm">
+                        <img class="img-fluid img-thumbnail" style="height: 500px; width: 100%; object-fit:cover;" src="media/{{ message.image }}" />
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
     {% endfor %}
 
 
