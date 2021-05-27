@@ -1,12 +1,18 @@
 from django.db import models
+from django.template.defaultfilters import slugify
 
 # Create your models here.
 
 class Heading(models.Model):
     heading = models.CharField(max_length=100, null=False)
+    slug = models.SlugField(max_length=200, null=True, default=None)
 
     def __str__(self):
         return self.heading
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        self.slug = slugify(self.heading)
 
 class MarketingPoints(models.Model):
     heading = models.ForeignKey(Heading, blank=False, default=None, on_delete=models.CASCADE)
