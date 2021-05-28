@@ -11,15 +11,17 @@ body {
     padding-top: 70px !important;
 }
 
-.text-img
 
 .market-img {
-    height: 80% !important;
-    width: 80% !important;
+    height: 30vw !important;
+    width: 30vw !important;
     display: block !important;
     margin: auto !important;
     object-fit: cover !important;
+    overflow: hidden;
 }
+
+
 
 .person-name {
     text-align: center;

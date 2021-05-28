@@ -28,7 +28,11 @@ SECRET_KEY = '*#ovowb62c&pkx0tcu%7yc1qeylsrq-d*+l_hn9(rg&gqq@xyg'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost",
+    "medishuttle.pythonanywhere.com"
+]
 
 
 # Application definition
